@@ -1,0 +1,17 @@
+{% extends 'todo/sketch.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <h1>Login</h1>
+</div>
+
+<div>
+    <form method="POST" class="login-form">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="button" type="submit" value="Login">
+    </form>
+    <p>Don't have an account? <a class="button register" href="{% url 'register' %}">Register</a></p>
+</div>
+
+{% endblock content %}

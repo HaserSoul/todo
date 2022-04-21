@@ -1,0 +1,38 @@
+{% extends 'todo/sketch.html' %}
+{% block content %}
+<div class="logout-button">
+{% if request.user.is_authenticated %}
+<a class="logout" href="{% url 'logout' %}">Logout</a> 
+{% else %}
+<a href="{% url 'login' %}">Login</a> 
+{% endif %}
+</div>
+<h1>Hello {{request.user|title}}</h1>
+
+<div>
+    <div style="display: flex; align-items: center; justify-content: center;"> 
+    <a class="button" href="{% url 'task-create' %}">Add task</a>
+    </div>
+    {% for task in tasks %}
+    <div id="item-row">
+        <div style="width: 75%;">
+            {% if task.complete %}
+            <a href="{% url 'task-update' task.id %}">{{task}}</a>
+            {% else %}
+            <a href="{% url 'task-update' task.id %}">{{task}}</a> 
+            {% endif %}  
+        </div>  
+        <div>
+        <a class="button delete" href="{% url 'task-delete' task.id %}">Delete</a>
+    </div>
+    </div>
+
+    {% empty %}
+    <div>
+        <h3>No new tasks are created.</h3>
+        <h3>Create a <a style="text-decoration: none; color: #e53935;" href="{% url 'task-create' %}">New task</a> ! </h3>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

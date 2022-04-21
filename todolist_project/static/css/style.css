@@ -1,0 +1,117 @@
+h1 {
+    color: #f4e1d2;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+
+}
+
+h2 {    
+    color: #f4e1d2;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-right: 25px;
+}
+
+p {
+    color: #f4e1d2;
+}
+
+body{
+    background-color: #3c2f2f;
+}
+
+a:link {
+    text-decoration: none;
+    color: #f4e1d2;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a:visited {
+    color: #f4e1d2;
+}
+
+.button {
+    width: auto;
+    font: bold 11px Arial;
+    text-decoration: none;
+    background-color: #3c2f2f;
+    color: #f4e1d2;
+    padding: 2px 6px 2px 6px;
+    border-top: 0.5px solid #3c2f2f;
+    border-right: 0.5px solid #3c2f2f;
+    border-bottom: 0.5px solid #3c2f2f;
+    border-left: 0.5px solid #3c2f2f;
+    border-radius: 15px;
+    box-shadow: 7px 7px 7px -5px rgba(0, 0, 0, 1);
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+  }
+
+.button:hover {
+    background-color: #4b3832;
+    color:#fff4e6;
+    transition: all .3s ease;
+
+}
+.button:active {
+    transform: scale(0.9);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+.login-form {
+    color: #f4e1d2;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: #f18973;
+    box-shadow: 7px 7px 7px -5px rgba(0, 0, 0, 1);
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#item-row{
+    width: 85%;
+    background-color: #be9b7b;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 1);
+    word-wrap: break-word;
+}
+
+.center-col {
+    width: 400px;
+    margin:30px auto;
+    padding: 30px;
+    background-color: #854442;
+    border-radius: 3px;
+    box-shadow: 5px 5px 10px -4px rgba(0, 0, 0, 1);
+
+}
+
+.logout-button {
+    float:right;
+}
+
+a.button.delete {
+    position: relative;
+    float: right;
+    text-decoration: none;
+    -ms-transform: translateY(-75%);
+    transform: translateY(-75%);
+}
