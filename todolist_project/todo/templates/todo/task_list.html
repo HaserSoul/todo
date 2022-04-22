@@ -4,7 +4,7 @@
 {% if request.user.is_authenticated %}
 <a class="logout" href="{% url 'logout' %}">Logout</a> 
 {% else %}
-<a href="{% url 'login' %}">Login</a> 
+<a class="logout" href="{% url 'login' %}">Login</a> 
 {% endif %}
 </div>
 <h1>Hello {{request.user|title}}</h1>
@@ -13,25 +13,40 @@
     <div style="display: flex; align-items: center; justify-content: center;"> 
     <a class="button" href="{% url 'task-create' %}">Add task</a>
     </div>
+    <h5>you have {{count}} incomplete task{{ count|pluralize:"s" }}</h5>
     {% for task in tasks %}
-    <div id="item-row">
-        <div style="width: 75%;">
-            {% if task.complete %}
-            <a href="{% url 'task-update' task.id %}">{{task}}</a>
-            {% else %}
-            <a href="{% url 'task-update' task.id %}">{{task}}</a> 
-            {% endif %}  
-        </div>  
-        <div>
-        <a class="button delete" href="{% url 'task-delete' task.id %}">Delete</a>
+    {% if task.complete %}
+
+    <div class="item-row">
+        <div class="item-row hide">
+            <div>{{task.description}}</div>
+        </div>
+        <div class="done">done</div>
+        <div class="item-text">{{task}}</div>
+        <div class="item-button"><a class="button" href="{% url 'task-update' task.id %}">View</a></div>
+        <div class="item-button"><a class="button" href="{% url 'task-delete' task.id %}">Delete</a></div>
+
     </div>
+
+    {% else %}
+
+    <div class="item-row">
+        <div class="item-row hide">
+            <div>{{task.description}}</div>
+        </div>
+            <div class="todo">to do</div>
+            <div class="item-text">{{task}}</div>
+            <div class="item-button"><a class="button" href="{% url 'task-update' task.id %}">View</a></div>
+            <div class="item-button"><a class="button" href="{% url 'task-delete' task.id %}">Delete</a></div>
+
     </div>
+
+    {% endif %} 
 
     {% empty %}
     <div>
-        <h3>No new tasks are created.</h3>
-        <h3>Create a <a style="text-decoration: none; color: #e53935;" href="{% url 'task-create' %}">New task</a> ! </h3>
-    </div>
+        <h3>Nothing planned to do...</h3>
+
     {% endfor %}
 </div>
 
